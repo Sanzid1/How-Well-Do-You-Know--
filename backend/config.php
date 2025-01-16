@@ -1,7 +1,7 @@
 <?php
 // Database configuration
 $host = 'localhost';
-$dbName = 'how_well_do_you_know';
+$dbName = 'how_well_do_you_know?';
 $dbUser = 'root';
 $dbPass = '';
 
