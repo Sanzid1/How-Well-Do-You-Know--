@@ -2,10 +2,13 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
 require_once __DIR__ . '/../../backend/config.php';
+var_dump(__DIR__);
 
-require_once __DIR__ . '/../../backend/config.php';
+
+
+
+
 
 $isLoggedIn = isset($_SESSION['user_id']);
 $userRole = null;
@@ -19,8 +22,8 @@ $userName   = $isLoggedIn ? $_SESSION['user_name'] : '';
 <head>
   <meta charset="UTF-8">
   <title>How Well Do You Know?</title>
-  <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/css/style.css">
-<link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
