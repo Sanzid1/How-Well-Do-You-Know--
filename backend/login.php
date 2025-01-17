@@ -14,20 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $stmt = $pdo->prepare("SELECT user_id, name, email, password_hash, role FROM users WHERE email = :email");
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
+        $stmt->execute([':email' => $email]);
 
         if ($stmt->rowCount() === 1) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            // Verify password
             if (password_verify($password, $user['password_hash'])) {
-                // Login success
                 $_SESSION['user_id']   = $user['user_id'];
                 $_SESSION['user_name'] = $user['name'];
                 $_SESSION['user_role'] = $user['role'];
-
-                header("Location: ../frontend/index.php");
+                header("Location: ../frontend/dashboard.php");
                 exit;
             } else {
                 $_SESSION['error'] = "Invalid email or password.";
@@ -40,11 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
     } catch (PDOException $e) {
-        $_SESSION['error'] = "Database error: ".$e->getMessage();
+        $_SESSION['error'] = "DB Error: " . $e->getMessage();
         header("Location: ../frontend/login.php");
         exit;
     }
-
 } else {
     header("Location: ../frontend/login.php");
     exit;

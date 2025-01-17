@@ -1,0 +1,32 @@
+body {
+    background-color: #f3e6ff;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .main-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .navbar-light .navbar-nav .nav-link {
+    color: #5c2e91;
+  }
+  .navbar-light .navbar-brand {
+    color: #5c2e91;
+    font-weight: bold;
+  }
+  
+  .btn-custom {
+    background-color: #5c2e91;
+    color: #fff;
+    border: none;
+  }
+  .btn-custom:hover {
+    background-color: #4b2373;
+  }
