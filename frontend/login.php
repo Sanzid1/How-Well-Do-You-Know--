@@ -7,7 +7,8 @@ include_once 'partials/header.php';
 <?php if (isset($_SESSION['error'])): ?>
   <div class="alert alert-danger"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></div>
 <?php endif; ?>
-<form action="../backend/login.php" method="POST">
+<!-- Update the form action -->
+<form action="../backend/login.php" method="POST"> <!-- Correct path to backend -->
   <div class="mb-3">
     <label for="email" class="form-label">Email Address</label>
     <input type="email" name="email" id="email" class="form-control" required>

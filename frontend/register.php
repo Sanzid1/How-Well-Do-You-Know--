@@ -10,7 +10,8 @@ include_once 'partials/header.php';
 <?php if (isset($_SESSION['success'])): ?>
   <div class="alert alert-success"><?php echo $_SESSION['success']; unset($_SESSION['success']); ?></div>
 <?php endif; ?>
-<form action="../backend/register.php" method="POST">
+<!-- Update the form action -->
+<form action="../backend/register.php" method="POST"> <!-- Correct path to backend -->
   <div class="mb-3">
     <label for="name" class="form-label">Full Name</label>
     <input type="text" name="name" id="name" class="form-control" required>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once 'config.php'; // Ensure this path is correct
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name     = trim($_POST['name']);
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_name'] = $name;
         $_SESSION['user_role'] = 'user';
         $_SESSION['success'] = "Registration successful! Welcome, $name.";
-        header("Location: ../frontend/dashboard.php");
+        header("Location: ../frontend/index.php"); // Redirect to user dashboard
         exit;
     } catch (PDOException $e) {
         $_SESSION['error'] = "DB Error: " . $e->getMessage();
@@ -49,3 +49,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: ../frontend/register.php");
     exit;
 }
+?>

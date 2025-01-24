@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once 'config.php'; // Ensure this path is correct
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email    = trim($_POST['email']);
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_id']   = $user['user_id'];
                 $_SESSION['user_name'] = $user['name'];
                 $_SESSION['user_role'] = $user['role'];
-                header("Location: ../frontend/dashboard.php");
+                header("Location: ../frontend/index.php"); // Redirect to user dashboard
                 exit;
             } else {
                 $_SESSION['error'] = "Invalid email or password.";
@@ -43,3 +43,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: ../frontend/login.php");
     exit;
 }
+?>
