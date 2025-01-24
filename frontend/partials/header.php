@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once __DIR__ . '/../../backend/config.php'; // Path to config is correct
+require_once __DIR__ . '/../../backend/config.php';
 
 $isLoggedIn = isset($_SESSION['user_id']);
 $userRole   = $isLoggedIn ? $_SESSION['user_role'] : null;
@@ -13,13 +13,15 @@ $userName   = $isLoggedIn ? $_SESSION['user_name'] : '';
 <head>
   <meta charset="UTF-8">
   <title>How Well Do You Know?</title>
-  <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css"> <!-- Fixed path -->
-  <link rel="stylesheet" href="css/style.css"> <!-- Fixed path -->
+  <!-- Correct CSS paths -->
+  <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">How Well Do You Know?</a> <!-- Link to frontend/index.php -->
+    <!-- Fixed home link -->
+    <a class="navbar-brand" href="/How-Well-Do-You-Know--/index.php">How Well Do You Know?</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
             aria-expanded="false" aria-label="Toggle navigation">
@@ -28,21 +30,28 @@ $userName   = $isLoggedIn ? $_SESSION['user_name'] : '';
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
   <?php if (!$isLoggedIn): ?>
-    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-    <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+    <!-- Login/Register (relative to frontend/) -->
+    <li class="nav-item"><a class="nav-link" href="/How-Well-Do-You-Know--/frontend/login.php">Login</a></li>
+    <li class="nav-item"><a class="nav-link" href="/How-Well-Do-You-Know--/frontend/register.php">Register</a></li>
   <?php else: ?>
-    <li class="nav-item"><a class="nav-link" href="browse_quizzes.php">Browse Quizzes</a></li>
-    <li class="nav-item"><a class="nav-link" href="leaderboard.php">Leaderboard</a></li>
-    <li class="nav-item"><a class="nav-link" href="my_history.php">My History</a></li>
+    <!-- User Links (relative to frontend/) -->
+    <li class="nav-item"><a class="nav-link" href="/How-Well-Do-You-Know--/frontend/browse_quizzes.php">Browse Quizzes</a></li>
+    <li class="nav-item"><a class="nav-link" href="/How-Well-Do-You-Know--/frontend/leaderboard.php">Leaderboard</a></li>
+    <li class="nav-item"><a class="nav-link" href="/How-Well-Do-You-Know--/frontend/my_history.php">My History</a></li>
+    
     <?php if ($userRole === 'user'): ?>
-      <li class="nav-item"><a class="nav-link" href="create_quiz.php">Create Quiz</a></li> <!-- Added for users -->
+      <li class="nav-item"><a class="nav-link" href="/How-Well-Do-You-Know--/frontend/create_quiz.php">Create Quiz</a></li>
     <?php endif; ?>
+    
     <?php if ($userRole === 'admin'): ?>
-      <li class="nav-item"><a class="nav-link" href="admin/categories.php">Manage Categories</a></li>
-      <li class="nav-item"><a class="nav-link" href="admin/pending_quizzes.php">Pending Quizzes</a></li> <!-- Added for admins -->
+      <!-- Admin Links (relative to frontend/) -->
+      <li class="nav-item"><a class="nav-link" href="/How-Well-Do-You-Know--/frontend/admin/categories.php">Manage Categories</a></li>
+      <li class="nav-item"><a class="nav-link" href="/How-Well-Do-You-Know--/frontend/admin/pending_quizzes.php">Pending Quizzes</a></li>
     <?php endif; ?>
+    
+    <!-- Logout (relative to backend/) -->
     <li class="nav-item">
-      <a class="nav-link" href="../backend/logout.php">
+      <a class="nav-link" href="/How-Well-Do-You-Know--/backend/logout.php">
         Logout (<?php echo htmlspecialchars($userName); ?>)
       </a>
     </li>
@@ -52,3 +61,8 @@ $userName   = $isLoggedIn ? $_SESSION['user_name'] : '';
   </div>
 </nav>
 <div class="main-container"></div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="/How-Well-Do-You-Know--/frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

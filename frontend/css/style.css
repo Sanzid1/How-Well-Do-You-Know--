@@ -30,3 +30,10 @@ body {
   .btn-custom:hover {
     background-color: #4b2373;
   }
+  /* Improve category hierarchy visibility */
+.list-group-item ul.list-group {
+  margin-left: 2rem;
+}
+.list-group-item strong {
+  color: #5c2e91; /* Match your theme color */
+}

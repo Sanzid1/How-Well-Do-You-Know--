@@ -9,7 +9,12 @@ $successMsg = isset($_SESSION['success']) ? $_SESSION['success'] : '';
 $errorMsg   = isset($_SESSION['error'])   ? $_SESSION['error']   : '';
 unset($_SESSION['success'], $_SESSION['error']);
 
+// Initialize variables
+$topCategories = [];
+$allCategories = [];
+
 try {
+    // Corrected SQL: Use parent_id
     $stmtTop = $pdo->prepare("SELECT * FROM categories WHERE parent_id IS NULL ORDER BY category_name ASC");
     $stmtTop->execute();
     $topCategories = $stmtTop->fetchAll(PDO::FETCH_ASSOC);
@@ -19,6 +24,8 @@ try {
     $allCategories = $stmtAll->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     $errorMsg = "DB Error: " . $e->getMessage();
+    $topCategories = [];
+    $allCategories = [];
 }
 include_once '../partials/header.php';
 ?>
@@ -58,13 +65,14 @@ include_once '../partials/header.php';
     <li class="list-group-item">
       <strong><?php echo $topCat['category_name']; ?></strong> (ID: <?php echo $topCat['category_id']; ?>)
       <?php
+        // Use parent_id
         $subCats = array_filter($allCategories, function($c) use ($topCat) {
             return $c['parent_id'] == $topCat['category_id'];
         });
         if (!empty($subCats)) {
-            echo "<ul class='mt-2'>";
+            echo "<ul class='list-group mt-2'>";
             foreach($subCats as $sc) {
-                echo "<li>{$sc['category_name']} (ID: {$sc['category_id']})</li>";
+                echo "<li class='list-group-item'>{$sc['category_name']} (ID: {$sc['category_id']})</li>";
             }
             echo "</ul>";
         }
