@@ -15,6 +15,7 @@ $userName   = $isLoggedIn ? $_SESSION['user_name'] : '';
   <title>How Well Do You Know?</title>
   <!-- Correct CSS paths -->
   <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/css/style.css">
 </head>
 <body>

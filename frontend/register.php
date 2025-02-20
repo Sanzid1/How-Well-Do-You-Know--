@@ -22,7 +22,17 @@ include_once 'partials/header.php';
   </div>
   <div class="mb-3">
     <label for="password" class="form-label">Password</label>
-    <input type="password" name="password" id="password" class="form-control" required>
+    <div class="input-group">
+      <input type="password" name="password" id="password" class="form-control" required>
+      <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('password', event)"><i class="bi bi-eye"></i></button>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="confirm_password" class="form-label">Confirm Password</label>
+    <div class="input-group">
+      <input type="password" name="confirm_password" id="confirm_password" class="form-control" required>
+      <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('confirm_password', event)"><i class="bi bi-eye"></i></button>
+    </div>
   </div>
   <button type="submit" class="btn btn-custom">Sign Up</button>
 </form>

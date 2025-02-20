@@ -20,10 +20,12 @@ define('MAX_LOGIN_ATTEMPTS', 5);
 define('LOGIN_TIMEOUT', 900); // 15 minutes
 
 // Initialize session with secure settings
-ini_set('session.cookie_httponly', 1);
-ini_set('session.cookie_secure', 1);
-ini_set('session.use_only_cookies', 1);
-ini_set('session.cookie_samesite', 'Strict');
+if (session_status() === PHP_SESSION_NONE) {
+    ini_set('session.cookie_httponly', 1);
+    ini_set('session.cookie_secure', 1);
+    ini_set('session.use_only_cookies', 1);
+    ini_set('session.cookie_samesite', 'Strict');
+}
 
 // Create a new PDO instance
 try {
