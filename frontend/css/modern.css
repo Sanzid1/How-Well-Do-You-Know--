@@ -1,0 +1,152 @@
+:root {
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--hover-color));
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 15px rgba(0, 0, 0, 0.1);
+    --transition-base: all 0.3s ease;
+}
+
+/* Modern Button Styles */
+.btn-gradient {
+    background-image: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    transition: var(--transition-base);
+}
+
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Modern Card Styles */
+.card-modern {
+    background: white;
+    border: none;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+    overflow: hidden;
+}
+
+.card-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-modern .card-header {
+    background-image: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 1.5rem;
+}
+
+/* Form Enhancement */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: var(--primary-color);
+    transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+.form-control-modern {
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: var(--transition-base);
+}
+
+.form-control-modern:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(74, 144, 226, 0.15);
+}
+
+/* Modern List Group */
+.list-group-modern .list-group-item {
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    background-color: var(--secondary-color);
+    transition: var(--transition-base);
+}
+
+.list-group-modern .list-group-item:hover {
+    transform: translateX(5px);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Progress Bar Enhancement */
+.progress {
+    height: 0.75rem;
+    border-radius: 1rem;
+    background-color: var(--secondary-color);
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-image: var(--gradient-primary);
+    transition: width 1s ease;
+}
+
+/* Pill Badge */
+.badge-pill-modern {
+    background-image: var(--gradient-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Loading Animation */
+.loading-spinner {
+    width: 3rem;
+    height: 3rem;
+    border: 3px solid var(--secondary-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+}
+
+/* Hover Effects */
+.hover-lift {
+    transition: var(--transition-base);
+}
+
+.hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Modern Table */
+.table-modern {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.table-modern thead {
+    background-image: var(--gradient-primary);
+    color: white;
+}
+
+.table-modern th,
+.table-modern td {
+    padding: 1rem 1.5rem;
+    border: none;
+}
+
+.table-modern tbody tr {
+    transition: var(--transition-base);
+}
+
+.table-modern tbody tr:hover {
+    background-color: var(--secondary-color);
+}

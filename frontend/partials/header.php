@@ -17,6 +17,7 @@ $userName   = $isLoggedIn ? $_SESSION['user_name'] : '';
   <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/bootstrap-5.3.3-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/css/style.css">
+  <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/css/dark-theme.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -51,19 +52,24 @@ $userName   = $isLoggedIn ? $_SESSION['user_name'] : '';
     <?php endif; ?>
     
     <!-- Logout (relative to backend/) -->
-    <li class="nav-item">
-      <a class="nav-link" href="/How-Well-Do-You-Know--/backend/logout.php">
-        Logout (<?php echo htmlspecialchars($userName); ?>)
-      </a>
-    </li>
+    <li class="nav-item"><a class="nav-link" href="/How-Well-Do-You-Know--/backend/logout.php">Logout</a></li>
   <?php endif; ?>
 </ul>
     </div>
   </div>
 </nav>
+
+<!-- Add dark mode toggle button -->
+<div class="theme-toggle-wrapper">
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="bi bi-moon-fill"></i>
+    </button>
+</div>
 <div class="main-container"></div>
 
 <!-- Bootstrap JS and dependencies -->
 <script src="/How-Well-Do-You-Know--/frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+<script src="/How-Well-Do-You-Know--/frontend/js/main.js"></script>
+<script src="/How-Well-Do-You-Know--/frontend/js/theme.js"></script>
 </body>
 </html>
