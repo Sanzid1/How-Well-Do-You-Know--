@@ -32,7 +32,7 @@ body {
 }
 
 .page-container {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
     padding: var(--spacing-lg);
     min-height: calc(100vh - 60px);
@@ -42,23 +42,23 @@ body {
 }
 
 .section-spacing {
-    margin-bottom: var(--spacing-xxl);
+    margin-bottom: var(--spacing-xl);
 }
 
 .content-wrapper {
     width: 100%;
-    max-width: 800px;
+    max-width: 650px;
     padding: var(--spacing-lg);
     background-color: white;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--box-shadow);
-    margin: var(--spacing-lg) auto;
+    margin: var(--spacing-md) auto;
 }
 
 .form-wrapper {
     width: 100%;
-    max-width: 400px;
-    margin: var(--spacing-lg) auto;
+    max-width: 450px;
+    margin: var(--spacing-md) auto;
     padding: var(--spacing-lg);
     background-color: white;
     border-radius: var(--border-radius-lg);
@@ -66,7 +66,7 @@ body {
 }
 
 .form-group {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 .form-group:last-child {
@@ -87,10 +87,11 @@ h2 {
 }
 
 .form-control {
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
     padding: 0.75rem;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .form-control:focus {
@@ -112,11 +113,12 @@ h2 {
     background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 8px;
-    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    padding: 0.6rem 1.5rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    width: 100%;
+    width: auto;
+    min-width: 120px;
     margin-top: 1rem;
 }
 
@@ -369,22 +371,22 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Form container centering */
 .form-container {
-    max-width: 500px;
+    max-width: 550px;
     margin: 2rem auto;
     padding: 2rem;
     background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
 }
 
 /* Quiz related styling */
 .quiz-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 650px;
     margin: var(--spacing-lg) auto;
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl);
     background-color: white;
-    border-radius: var(--border-radius-lg);
+    border-radius: var(--border-radius-md);
     box-shadow: var(--box-shadow);
 }
 
@@ -431,6 +433,7 @@ h1, h2, h3, h4, h5, h6 {
     .quiz-container {
         margin: var(--spacing-md);
         padding: var(--spacing-md);
+        max-width: 100%;
     }
     
     .card-grid {
@@ -453,6 +456,7 @@ h1, h2, h3, h4, h5, h6 {
     
     .table-container {
         margin: var(--spacing-md) 0;
+        max-width: 100%;
     }
 }
 
@@ -489,4 +493,25 @@ h1, h2, h3, h4, h5, h6 {
         border-radius: 12px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
+}
+
+/* Fix for password toggle button positioning */
+.input-group {
+    position: relative;
+}
+
+.input-group .btn-outline-secondary {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: transparent;
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.input-group input[type="password"],
+.input-group input[type="text"] {
+    padding-right: 40px; /* Make room for the eye icon */
 }

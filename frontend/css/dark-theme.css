@@ -13,7 +13,11 @@
 }
 
 [data-theme='dark'] .container,
-[data-theme='dark'] .container-fluid {
+[data-theme='dark'] .container-fluid,
+[data-theme='dark'] .page-container,
+[data-theme='dark'] .content-wrapper,
+[data-theme='dark'] .form-wrapper,
+[data-theme='dark'] .form-container {
     background-color: var(--dark-bg);
     color: var(--dark-text);
 }
@@ -25,30 +29,87 @@
     border-color: var(--dark-input-border);
 }
 
-[data-theme='dark'] .main-container {
-    min-height: calc(100vh - 56px);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 [data-theme='dark'] .navbar {
     background-color: var(--dark-bg) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .navbar-brand {
+    color: var(--accent-color) !important;
 }
 
 [data-theme='dark'] .nav-link {
     color: var(--dark-text) !important;
 }
 
+[data-theme='dark'] .nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+[data-theme='dark'] .form-control,
+[data-theme='dark'] input {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    border-color: var(--dark-input-border);
+}
+
+[data-theme='dark'] .form-control:focus,
+[data-theme='dark'] input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(167, 139, 250, 0.25);
+}
+
+[data-theme='dark'] .form-label,
+[data-theme='dark'] label {
+    color: var(--dark-text);
+}
+
+[data-theme='dark'] .btn-custom {
+    background-color: var(--accent-color);
+    color: var(--dark-bg);
+}
+
+[data-theme='dark'] .btn-outline-secondary {
+    border-color: var(--dark-input-border);
+    color: var(--dark-text);
+}
+
+[data-theme='dark'] .btn-outline-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--dark-bg);
+    border-color: var(--accent-color);
+}
+
+[data-theme='dark'] a {
+    color: var(--accent-color);
+}
+
+[data-theme='dark'] a:hover {
+    color: #b8a9f3;
+}
+
+[data-theme='dark'] .alert-danger {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+[data-theme='dark'] .alert-success {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+    border-color: #2ecc71;
+}
+
+/* Form Container Styling */
 .form-container {
     width: 100%;
-    max-width: 420px;
-    border-radius: 0.75rem;
-    background-color: var(--dark-bg);
+    max-width: 450px;
+    border-radius: 0.5rem;
+    background-color: white;
     padding: 2rem;
-    color: var(--dark-text);
+    color: var(--text-color);
     margin: 2rem auto;
+    box-shadow: var(--box-shadow);
 }
 
 .title {
@@ -63,6 +124,7 @@
     margin-top: 0.25rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
+    position: relative;
 }
 
 .input-group label {
@@ -73,16 +135,29 @@
 
 .input-group input {
     width: 100%;
-    border-radius: 0.375rem;
-    border: 1px solid var(--dark-input-border);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
     outline: 0;
-    background-color: var(--dark-bg);
+    background-color: white;
     padding: 0.75rem 1rem;
-    color: var(--dark-text);
+    color: var(--text-color);
 }
 
-.input-group input:focus {
-    border-color: var(--accent-color);
+/* Fix for password toggle button */
+.input-group .btn-outline-secondary {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: transparent;
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.input-group input[type="password"],
+.input-group input[type="text"] {
+    padding-right: 40px; /* Make room for the eye icon */
 }
 
 .forgot {
@@ -95,7 +170,7 @@
 }
 
 .forgot a, .signup a {
-    color: var(--dark-text);
+    color: var(--accent-color);
     text-decoration: none;
     font-size: 14px;
 }
@@ -106,21 +181,24 @@
 }
 
 .btn-custom {
-    display: block;
-    width: 100%;
-    background-color: var(--accent-color);
-    padding: 0.75rem;
+    display: inline-block;
+    min-width: 120px;
+    background-color: var(--primary-color);
+    padding: 0.6rem 1.5rem;
     text-align: center;
-    color: var(--dark-bg);
+    color: white;
     border: none;
-    border-radius: 0.375rem;
+    border-radius: 4px;
     font-weight: 600;
     margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .btn-custom:hover {
     opacity: 0.9;
-    color: var(--dark-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .social-message {
@@ -132,7 +210,7 @@
 .line {
     height: 1px;
     flex: 1 1 0%;
-    background-color: var(--dark-line);
+    background-color: var(--border-color);
 }
 
 .social-message .message {
@@ -140,7 +218,7 @@
     padding-right: 0.75rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
-    color: var(--dark-label);
+    color: var(--text-color);
 }
 
 .social-icons {
@@ -161,6 +239,10 @@
 .social-icons .icon svg {
     height: 1.25rem;
     width: 1.25rem;
+    fill: var(--text-color);
+}
+
+[data-theme='dark'] .social-icons .icon svg {
     fill: var(--dark-text);
 }
 
@@ -168,7 +250,12 @@
     text-align: center;
     font-size: 0.75rem;
     line-height: 1rem;
-    color: var(--dark-label);
+    color: var(--text-color);
+    margin-top: 1rem;
+}
+
+[data-theme='dark'] .signup {
+    color: var(--dark-text);
 }
 
 /* Dark mode toggle */

@@ -1,0 +1,155 @@
+/* Google Forms-like UI Styles */
+
+/* Global container styles */
+.page-container,
+.content-wrapper,
+.form-wrapper,
+.quiz-container,
+.form-container {
+    max-width: 580px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 24px !important;
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 16px !important;
+}
+
+.form-control {
+    border: 1px solid #dadce0 !important;
+    border-radius: 4px !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2) !important;
+}
+
+/* Label styling */
+.form-label {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-bottom: 6px !important;
+}
+
+/* Button styling */
+.btn-custom,
+.btn-gradient {
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    padding: 8px 24px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.25px !important;
+    text-transform: none !important;
+    display: inline-block !important;
+    min-width: 100px !important;
+}
+
+/* Card styling */
+.card,
+.card-modern {
+    border-radius: 8px !important;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15) !important;
+    margin-bottom: 16px !important;
+    overflow: hidden !important;
+}
+
+.card-header {
+    padding: 16px !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+}
+
+.card-body {
+    padding: 16px !important;
+}
+
+/* Table styling */
+.table-container,
+.table-modern {
+    max-width: 580px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 8px !important;
+}
+
+.table th {
+    font-weight: 500 !important;
+    font-size: 14px !important;
+}
+
+.table td {
+    font-size: 14px !important;
+    padding: 12px 16px !important;
+}
+
+/* Question card styling */
+.question-card {
+    background-color: white !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+    border-left: 4px solid var(--primary-color) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .page-container,
+    .content-wrapper,
+    .form-wrapper,
+    .quiz-container,
+    .form-container {
+        padding: 16px !important;
+        margin: 12px !important;
+        max-width: 100% !important;
+    }
+    
+    .btn-custom,
+    .btn-gradient {
+        width: 100% !important;
+    }
+}
+
+/* Dark theme compatibility */
+[data-theme='dark'] .form-control {
+    border: 1px solid var(--dark-input-border) !important;
+    background-color: var(--dark-bg) !important;
+}
+
+[data-theme='dark'] .card,
+[data-theme='dark'] .card-modern,
+[data-theme='dark'] .question-card {
+    background-color: var(--dark-bg) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Center align all headings */
+h1, h2, h3, h4, h5, h6 {
+    text-align: center !important;
+    margin-bottom: 24px !important;
+}
+
+/* Compact spacing */
+.section-spacing {
+    margin-bottom: 24px !important;
+}
+
+/* Improve form layout */
+.input-group {
+    margin-bottom: 16px !important;
+}
+
+/* Make alerts more compact */
+.alert {
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    max-width: 580px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}

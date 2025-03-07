@@ -3,7 +3,19 @@ function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
     
-    // Update toggle switch
+    // Update toggle button icon
+    const themeToggleIcon = document.querySelector('.theme-toggle i');
+    if (themeToggleIcon) {
+        if (theme === 'dark') {
+            themeToggleIcon.classList.remove('bi-moon-fill');
+            themeToggleIcon.classList.add('bi-sun-fill');
+        } else {
+            themeToggleIcon.classList.remove('bi-sun-fill');
+            themeToggleIcon.classList.add('bi-moon-fill');
+        }
+    }
+    
+    // Update toggle switch if it exists
     const toggleSwitch = document.getElementById('theme-toggle');
     if (toggleSwitch) {
         toggleSwitch.checked = theme === 'dark';
@@ -26,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set initial theme
     setTheme(savedTheme);
     
-    // Add event listener to toggle switch
+    // Add event listener to toggle switch if it exists
     const toggleSwitch = document.getElementById('theme-toggle');
     if (toggleSwitch) {
         toggleSwitch.addEventListener('change', toggleTheme);

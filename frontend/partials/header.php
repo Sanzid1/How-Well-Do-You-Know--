@@ -18,6 +18,8 @@ $userName   = $isLoggedIn ? $_SESSION['user_name'] : '';
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/css/style.css">
   <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/css/dark-theme.css">
+  <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/css/modern.css">
+  <link rel="stylesheet" href="/How-Well-Do-You-Know--/frontend/css/google-forms.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
